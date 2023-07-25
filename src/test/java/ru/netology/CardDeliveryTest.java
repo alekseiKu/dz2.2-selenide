@@ -2,6 +2,7 @@ package ru.netology;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ public class CardDeliveryTest {
         open("http://localhost:9999/");
         $("[data-test-id='city'] input").setValue("Москва");
         String currentDate = newDate(3, "dd.MM.yyyy");
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.UP), Keys.DELETE);
         $("[data-test-id='date'] input").sendKeys(currentDate);
         $("[data-test-id='name'] input").setValue("Куличкин Алексей");
         $("[data-test-id='phone'] input").setValue("+78000000000");
